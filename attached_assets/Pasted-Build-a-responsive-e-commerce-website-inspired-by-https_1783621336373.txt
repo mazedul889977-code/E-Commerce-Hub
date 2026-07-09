@@ -1,0 +1,154 @@
+Build a responsive e-commerce website inspired by https://akproductsusa.com/ for AK Products USA.
+
+Important: I own or have permission to use the AK Products USA brand, text, product information, and images. If any original images/assets are not provided, use clean placeholder product images and keep the layout, spacing, sections, and visual style as close as possible without hotlinking or scraping protected assets.
+
+Tech stack:
+
+* Use React + Vite
+* Use Tailwind CSS
+* Make it fully responsive for desktop, tablet, and mobile
+* Use clean reusable components
+* Do not use backend unless needed; cart can work with local state/localStorage
+
+Pages and navigation:
+Create these pages:
+
+1. Home
+2. Shop
+3. Kitchen
+4. Household
+5. Electronic
+6. About Us
+7. Contact Us
+8. My Account / Login Register
+9. Cart
+10. Privacy Policy
+11. Terms & Conditions
+12. Refund and Returns Policy
+
+Header:
+
+* Top area with logo on the left
+* Navigation menu: Home, Shop, Kitchen, Household, Electronic, About Us, Contact Us
+* Search icon/input
+* Account icon/link
+* Cart display showing "$0.00 0 Cart"
+* Mobile hamburger menu
+* Sticky or clean fixed-style header feel
+
+Home page layout:
+
+1. Hero section:
+
+   * Modern home/kitchen product banner
+   * Clean white background with product imagery
+   * CTA button: “Shop Now”
+   * Brand message: “Shop Smart, Live Better”
+
+2. Service feature row:
+
+   * Support 24/7
+   * Easy Returns
+   * Secure Payment
+   * Fast Delivery
+     Each feature should have an icon, title, and short subtitle:
+   * “Dedicated 24/7 Support”
+   * “Shop With Confidence”
+   * “Safe & trusted checkout”
+   * “Quick & reliable shipping”
+
+3. Product section:
+   Heading: “Product That Make Daily Life Easy”
+   Subheading: “Best Seller Product This Week!”
+   Show product cards in grid layout.
+   Product cards must include:
+
+   * Product image
+   * Product title
+   * Price
+   * Add to cart button
+   * Hover effect
+   * Quick view feel
+
+Use these sample products:
+
+* Pet Hair Remover Roller - Dog & Cat Fur Remover with Self-Cleaning Base - $3.46
+* 9 in 1 Electric Spin Scrubber Cordless Cleaning Brush - $24.06
+* Lint Remover for Clothing LED Digital Electric Pellet Fluff Remover - $1.98
+* Narrow Shape Press Ring Trash Can with Lid - $17.90
+* 2025 New 2-Tier Stainless Steel Kitchen Countertop Dish Drainer - $27.44
+* 16oz Oil Dispenser Bottle for Kitchen, 2 in 1 Olive Oil Dispenser and Oil Sprayer - $10.14
+* Electric Garlic Chopper Mini Portable Veggie Chopper - $1.98
+
+4. Category collection cards:
+
+   * Household
+   * Kitchen
+   * Electronic
+     Make each card clickable and visually match an online store collection block.
+
+5. Smart Kitchen section:
+   Heading: “Smart Kitchen”
+   Product grid with:
+
+   * AK Products Folding Wall Mounted Trash Can - $19.99
+   * AK Products 7PCS Stainless Steel Mixing Bowls Set with Lids - $33.99
+   * AK Products Manual Can Opener Heavy Duty - $21.99
+   * AK Products Magnetic Metal Spice Rack Organizer - $33.99
+   * AK Products 16-in-1 Vegetable Slicer Cutter Machine - $24.99
+   * AK Products Ultrasonic Pest Repeller 6 Pack - $27.99
+   * AK Products 12-Inch Pre-Seasoned Cast Iron Skillet - $35.99
+   * 5 in 1 Rotary Cheese Grater - $24.99
+
+6. Smart Home section:
+   Heading: “Smart Home”
+   Use similar product grid and layout.
+
+7. Promotional content section:
+   Heading: “SMART HOME SOLUTIONS”
+   Title: “Elevate Your Kitchen and Living Experience.”
+   Paragraph:
+   “A modern home deserves smarter tools. We provide premium kitchen electronics and household essentials crafted for efficiency and style. From meal prep to daily chores, our high-quality products are designed to save you time and simplify your life. Experience the perfect blend of innovation and convenience in every corner of your home.”
+   CTA button: “shop now”
+
+Footer:
+
+* Logo/brand short text:
+  “Your trusted shop for high quality kitchen gadgets and home appliances. Simplifying your daily life with smart solutions.”
+* Important links:
+  My account, Privacy Policy, Terms & Conditions, Refund and Returns Policy
+* Category links:
+  Kitchen, Household, Electronic
+* Copyright:
+  “© 2026 AK Products USA. All Rights Reserved.”
+
+Design style:
+
+* Clean modern WooCommerce-style store
+* White background
+* Black/dark text
+* Soft gray borders
+* Product cards with rounded corners
+* Consistent spacing
+* Professional e-commerce layout
+* Smooth hover animations
+* Mobile-first responsive design
+
+Functionality:
+
+* Add to cart should update cart count and total price
+* Cart page should list selected items, quantity, subtotal, and total
+* Search should filter products
+* Category pages should show products by category
+* Product cards should link to a simple product detail page/modal
+* Contact page should have name, email, subject, message form
+* About page should describe AK Products USA as a smart home, kitchen, and household essentials store
+
+Deliver:
+
+* Complete working code
+* Organized components:
+  Header, Footer, Hero, FeatureBar, ProductCard, ProductGrid, CategoryCards, PromoSection, CartPage
+* No broken links
+* Use placeholder images if real images are not provided
+* Keep the website visually very close to the reference layout and structure

@@ -1,0 +1,27 @@
+kind = "web"
+previewPath = "/"
+title = "AK Products USA"
+version = "1.0.0"
+id = "artifacts/ak-products"
+router = "path"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 22486
+
+[services.development]
+run = "pnpm --filter @workspace/ak-products run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/ak-products", "run", "build" ]
+serve = "static"
+publicDir = "artifacts/ak-products/dist/public"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "22486"
+BASE_PATH = "/"
