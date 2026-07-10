@@ -5,11 +5,14 @@ import NotFound from '@/pages/not-found';
 import { Route, Switch, Router as WouterRouter } from 'wouter';
 
 import { CartProvider } from '@/context/CartContext';
+import { HomeContentProvider } from '@/context/HomeContentContext';
+import { ProductProvider } from '@/context/ProductContext';
 import Home from '@/pages/Home';
 import Shop from '@/pages/Shop';
 import CategoryPage from '@/pages/CategoryPage';
 import ProductDetail from '@/pages/ProductDetail';
 import Cart from '@/pages/Cart';
+import Admin from '@/pages/Admin';
 import About from '@/pages/About';
 import Contact from '@/pages/Contact';
 import Account from '@/pages/Account';
@@ -57,6 +60,7 @@ function Router() {
       
       <Route path="/product/:id" component={ProductDetail} />
       <Route path="/cart" component={Cart} />
+      <Route path="/admin" component={Admin} />
       <Route path="/about" component={About} />
       <Route path="/contact" component={Contact} />
       <Route path="/account" component={Account} />
@@ -73,14 +77,18 @@ function Router() {
 function App() {
   return (
     <QueryClientProvider client={queryClient}>
-      <CartProvider>
-        <TooltipProvider>
-          <WouterRouter base={import.meta.env.BASE_URL.replace(/\/$/, '')}>
-            <Router />
-          </WouterRouter>
-          <Toaster />
-        </TooltipProvider>
-      </CartProvider>
+      <ProductProvider>
+        <HomeContentProvider>
+          <CartProvider>
+            <TooltipProvider>
+              <WouterRouter base={import.meta.env.BASE_URL.replace(/\/$/, '')}>
+                <Router />
+              </WouterRouter>
+              <Toaster />
+            </TooltipProvider>
+          </CartProvider>
+        </HomeContentProvider>
+      </ProductProvider>
     </QueryClientProvider>
   );
 }

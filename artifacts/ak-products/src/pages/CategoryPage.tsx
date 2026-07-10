@@ -1,7 +1,7 @@
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { ProductGrid } from "@/components/ProductGrid";
-import { products } from "@/data/products";
+import { useProducts } from "@/context/ProductContext";
 import { Link } from "wouter";
 
 interface CategoryPageProps {
@@ -11,6 +11,7 @@ interface CategoryPageProps {
 }
 
 export default function CategoryPage({ category, title, description }: CategoryPageProps) {
+  const { products } = useProducts();
   const categoryProducts = products.filter(p => p.category === category);
 
   return (

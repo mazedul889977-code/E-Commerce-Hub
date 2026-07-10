@@ -8,9 +8,10 @@ interface ProductGridProps {
   title?: string;
   subtitle?: string;
   viewAllLink?: string;
+  viewAllText?: string;
 }
 
-export function ProductGrid({ products, title, subtitle, viewAllLink }: ProductGridProps) {
+export function ProductGrid({ products, title, subtitle, viewAllLink, viewAllText = "View All" }: ProductGridProps) {
   if (!products.length) return null;
 
   return (
@@ -36,7 +37,7 @@ export function ProductGrid({ products, title, subtitle, viewAllLink }: ProductG
                 href={viewAllLink}
                 className="text-primary font-semibold hover:text-primary/80 flex items-center gap-1 group"
               >
-                View All <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                {viewAllText} <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </Link>
             )}
           </div>

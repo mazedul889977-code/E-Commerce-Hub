@@ -1,0 +1,10 @@
+services:
+  - type: web
+    runtime: static
+    name: yallomart
+    buildCommand: pnpm install --frozen-lockfile && pnpm --filter @workspace/ak-products run build
+    staticPublishPath: artifacts/ak-products/dist/public
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html

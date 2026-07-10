@@ -1,6 +1,6 @@
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
-import { products } from "@/data/products";
+import { useProducts } from "@/context/ProductContext";
 import { useCart } from "@/context/CartContext";
 import { useParams, Link } from "wouter";
 import { useState } from "react";
@@ -10,6 +10,7 @@ import NotFound from "./not-found";
 
 export default function ProductDetail() {
   const { id } = useParams();
+  const { products } = useProducts();
   const product = products.find(p => p.id === id);
   const { addToCart } = useCart();
   const { toast } = useToast();

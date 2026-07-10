@@ -1,5 +1,5 @@
 import { Link, useLocation } from "wouter";
-import { Search, ShoppingCart, User, Home as HomeIcon, Menu, X } from "lucide-react";
+import { Search, ShoppingCart, User, Home as HomeIcon, Menu, X, Settings } from "lucide-react";
 import { useCart } from "../context/CartContext";
 import { useState, useEffect } from "react";
 
@@ -55,6 +55,7 @@ export function Header() {
           <Link href="/electronic" className="hover:text-primary transition-colors">Electronic</Link>
           <Link href="/about" className="hover:text-primary transition-colors">About Us</Link>
           <Link href="/contact" className="hover:text-primary transition-colors">Contact Us</Link>
+          <Link href="/admin" className="hover:text-primary transition-colors">Admin</Link>
         </nav>
 
         {/* Right Actions */}
@@ -89,6 +90,10 @@ export function Header() {
 
           <Link href="/account" className="p-2 text-gray-600 hover:text-primary transition-colors rounded-full hover:bg-gray-50">
             <User className="w-5 h-5" />
+          </Link>
+
+          <Link href="/admin" className="p-2 text-gray-600 hover:text-primary transition-colors rounded-full hover:bg-gray-50" aria-label="Admin">
+            <Settings className="w-5 h-5" />
           </Link>
 
           <Link href="/cart" className="flex items-center gap-2 p-2 hover:bg-gray-50 rounded-lg transition-colors group">
@@ -126,7 +131,8 @@ export function Header() {
               <Link href="/household" className="py-2 border-b border-gray-100" onClick={closeMobileMenu}>Household</Link>
               <Link href="/electronic" className="py-2 border-b border-gray-100" onClick={closeMobileMenu}>Electronic</Link>
               <Link href="/about" className="py-2 border-b border-gray-100" onClick={closeMobileMenu}>About Us</Link>
-              <Link href="/contact" className="py-2" onClick={closeMobileMenu}>Contact Us</Link>
+              <Link href="/contact" className="py-2 border-b border-gray-100" onClick={closeMobileMenu}>Contact Us</Link>
+              <Link href="/admin" className="py-2" onClick={closeMobileMenu}>Admin</Link>
             </nav>
           </div>
         </div>

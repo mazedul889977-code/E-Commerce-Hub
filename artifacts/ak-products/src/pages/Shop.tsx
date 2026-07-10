@@ -1,11 +1,12 @@
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { ProductGrid } from "@/components/ProductGrid";
-import { products } from "@/data/products";
+import { useProducts } from "@/context/ProductContext";
 import { useState, useMemo, useEffect } from "react";
 import { useLocation, Link } from "wouter";
 
 export default function Shop() {
+  const { products } = useProducts();
   const [location] = useLocation();
   const searchParams = new URLSearchParams(window.location.search);
   const initialSearch = searchParams.get("search") || "";
