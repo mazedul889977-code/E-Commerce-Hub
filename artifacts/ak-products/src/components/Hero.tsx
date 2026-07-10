@@ -4,7 +4,7 @@ import { Link } from "wouter";
 
 import { useHomeContent } from "@/context/HomeContentContext";
 
-const SLIDE_INTERVAL_MS = 5500;
+const SLIDE_INTERVAL_MS = 3000;
 
 export function Hero() {
   const { homeContent } = useHomeContent();
