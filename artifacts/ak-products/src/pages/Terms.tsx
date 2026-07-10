@@ -23,7 +23,7 @@ export default function Terms() {
           <p>In addition to other prohibitions, you are prohibited from using the site or its content for any unlawful purpose, to solicit others to perform or participate in any unlawful acts, or to violate any international, federal, provincial or state regulations, rules, laws, or local ordinances.</p>
           
           <h2>5. Limitation of Liability</h2>
-          <p>AK Products USA shall not be liable for any direct, indirect, incidental, special, or consequential damages that result from the use of, or the inability to use, the materials on this site or the performance of the products.</p>
+          <p>Yallo Mart shall not be liable for any direct, indirect, incidental, special, or consequential damages that result from the use of, or the inability to use, the materials on this site or the performance of the products.</p>
           
           <h2>6. Governing Law</h2>
           <p>These Terms of Service and any separate agreements whereby we provide you Services shall be governed by and construed in accordance with the laws of the United States.</p>

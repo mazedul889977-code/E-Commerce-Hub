@@ -12,7 +12,7 @@ export function Footer() {
               <Home className="w-5 h-5" />
             </div>
             <span className="font-bold text-xl tracking-tight text-white group-hover:text-primary transition-colors">
-              AK Products USA
+              Yallo Mart
             </span>
           </Link>
           <p className="text-sm leading-relaxed text-gray-400 pr-4">
@@ -44,7 +44,7 @@ export function Footer() {
       </div>
       
       <div className="container mx-auto px-4 mt-12 pt-6 border-t border-gray-800 text-sm text-center text-gray-500">
-        <p>&copy; 2026 AK Products USA. All Rights Reserved.</p>
+        <p>&copy; 2026 Yallo Mart. All Rights Reserved.</p>
       </div>
     </footer>
   );

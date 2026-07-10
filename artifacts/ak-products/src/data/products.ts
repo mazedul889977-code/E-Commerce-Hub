@@ -79,7 +79,7 @@ export const products: Product[] = [
   // Smart Kitchen
   {
     id: "k1",
-    name: "AK Products Folding Wall Mounted Trash Can",
+    name: "Yallo Mart Folding Wall Mounted Trash Can",
     price: 19.99,
     category: "kitchen",
     image: "https://placehold.co/400x400/f5f5f5/888888?text=Folding+Trash+Can",
@@ -87,7 +87,7 @@ export const products: Product[] = [
   },
   {
     id: "k2",
-    name: "AK Products 7PCS Stainless Steel Mixing Bowls Set",
+    name: "Yallo Mart 7PCS Stainless Steel Mixing Bowls Set",
     price: 33.99,
     category: "kitchen",
     image: "https://placehold.co/400x400/f5f5f5/888888?text=Mixing+Bowls",
@@ -95,7 +95,7 @@ export const products: Product[] = [
   },
   {
     id: "k3",
-    name: "AK Products Manual Can Opener Heavy Duty",
+    name: "Yallo Mart Manual Can Opener Heavy Duty",
     price: 21.99,
     category: "kitchen",
     image: "https://placehold.co/400x400/f5f5f5/888888?text=Can+Opener",
@@ -103,7 +103,7 @@ export const products: Product[] = [
   },
   {
     id: "k4",
-    name: "AK Products Magnetic Metal Spice Rack Organizer",
+    name: "Yallo Mart Magnetic Metal Spice Rack Organizer",
     price: 33.99,
     category: "kitchen",
     image: "https://placehold.co/400x400/f5f5f5/888888?text=Spice+Rack",
@@ -111,7 +111,7 @@ export const products: Product[] = [
   },
   {
     id: "k5",
-    name: "AK Products 16-in-1 Vegetable Slicer Cutter Machine",
+    name: "Yallo Mart 16-in-1 Vegetable Slicer Cutter Machine",
     price: 24.99,
     category: "kitchen",
     image: "https://placehold.co/400x400/f5f5f5/888888?text=Veggie+Slicer",
@@ -119,7 +119,7 @@ export const products: Product[] = [
   },
   {
     id: "h1",
-    name: "AK Products Ultrasonic Pest Repeller 6 Pack",
+    name: "Yallo Mart Ultrasonic Pest Repeller 6 Pack",
     price: 27.99,
     category: "household",
     image: "https://placehold.co/400x400/f5f5f5/888888?text=Pest+Repeller",
@@ -127,7 +127,7 @@ export const products: Product[] = [
   },
   {
     id: "k6",
-    name: "AK Products 12-Inch Pre-Seasoned Cast Iron Skillet",
+    name: "Yallo Mart 12-Inch Pre-Seasoned Cast Iron Skillet",
     price: 35.99,
     category: "kitchen",
     image: "https://placehold.co/400x400/f5f5f5/888888?text=Cast+Iron+Skillet",

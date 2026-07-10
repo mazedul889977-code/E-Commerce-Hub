@@ -1,5 +1,5 @@
 import { Link, useLocation } from "wouter";
-import { Search, ShoppingCart, User, Home as HomeIcon, Menu, X, Settings } from "lucide-react";
+import { Search, ShoppingCart, User, Sparkles, Menu, X, Settings } from "lucide-react";
 import { useCart } from "../context/CartContext";
 import { useState, useEffect } from "react";
 
@@ -37,13 +37,17 @@ export function Header() {
         </button>
 
         {/* Logo */}
-        <Link href="/" className="flex items-center gap-2 group">
-          <div className="bg-primary text-white p-1.5 rounded">
-            <HomeIcon className="w-5 h-5" />
+        <Link href="/" className="flex items-center gap-2.5 group" aria-label="Yallo Mart home">
+          <div className="relative grid h-9 w-9 place-items-center overflow-hidden rounded-xl bg-gradient-to-br from-amber-400 via-orange-500 to-rose-500 text-white shadow-md shadow-orange-200 transition-transform duration-200 group-hover:scale-105">
+            <div className="absolute inset-0 bg-white/15" />
+            <Sparkles className="relative h-5 w-5" strokeWidth={2.5} />
           </div>
-          <span className="font-bold text-xl tracking-tight text-gray-900 group-hover:text-primary transition-colors hidden sm:block">
-            AK Products USA
-          </span>
+          <div className="hidden sm:flex flex-col leading-none">
+            <span className="bg-gradient-to-r from-amber-500 via-orange-500 to-rose-500 bg-clip-text text-[22px] font-black tracking-[-0.06em] text-transparent transition-opacity group-hover:opacity-80">
+              Yallo<span className="ml-1 font-semibold tracking-[-0.04em]">Mart</span>
+            </span>
+            <span className="mt-1 text-[8px] font-bold tracking-[0.18em] text-slate-400">EVERYDAY ESSENTIALS</span>
+          </div>
         </Link>
 
         {/* Desktop Navigation */}
