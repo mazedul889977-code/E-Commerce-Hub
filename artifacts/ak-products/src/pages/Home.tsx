@@ -13,7 +13,7 @@ export default function Home() {
   const { homeContent } = useHomeContent();
   const bestSellers = products.filter(p => p.badge === "Best Seller");
   const smartKitchen = products.filter(p => p.collection === "smart-kitchen").slice(0, 8);
-  const smartHome = products.filter(p => p.category === "electronic").slice(0, 6);
+  const smartHome = products.filter(p => p.collection === "smart-home").slice(0, 8);
 
   return (
     <div className="min-h-screen flex flex-col">

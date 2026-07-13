@@ -8,7 +8,7 @@ export interface Product {
   badge?: string;
   stock?: number;
   visible?: boolean;
-  collection?: "smart-kitchen";
+  collection?: "smart-kitchen" | "smart-home";
 }
 
 export const products: Product[] = [
@@ -226,7 +226,81 @@ export const products: Product[] = [
     description: "Handheld rotary cheese grater with multiple drums for nuts and veggies.",
   },
 
-  // Smart Home
+  // Smart Home collection
+  {
+    id: "sh1",
+    name: "Govee RGBIC Bluetooth LED Strip Lights 16.4ft",
+    price: 13.49,
+    category: "electronic",
+    collection: "smart-home",
+    image: "/images/products/govee-led-strip.jpg",
+    description: "App-controlled RGBIC LED strip lights with segmented colors, music sync, DIY modes, and timers.",
+  },
+  {
+    id: "sh2",
+    name: "Govee RGBIC Smart Table Lamp 2",
+    price: 69.99,
+    category: "electronic",
+    collection: "smart-home",
+    image: "/images/products/govee-table-lamp.jpg",
+    description: "Touch bedside smart lamp with Matter, Alexa, SmartThings, and 64 dynamic scene modes.",
+  },
+  {
+    id: "sh3",
+    name: "Govee Lantern RGBIC Smart Floor Lamp",
+    price: 129.99,
+    category: "electronic",
+    collection: "smart-home",
+    image: "/images/products/govee-lantern-floor-lamp.jpg",
+    description: "Matter-compatible gradient floor lamp with music sync, adjustable white light, and over 100 scenes.",
+  },
+  {
+    id: "sh4",
+    name: "Govee RGBIC Uplighter Ripple Projector Floor Lamp",
+    price: 179.99,
+    category: "electronic",
+    collection: "smart-home",
+    image: "/images/products/govee-uplighter-lamp.jpg",
+    description: "Smart ripple projector floor lamp with RGBIC effects, warm and cool whites, Matter, and voice control.",
+  },
+  {
+    id: "sh5",
+    name: "Govee Tree Floor Lamp with 3 Rotatable Lights",
+    price: 144.99,
+    category: "electronic",
+    collection: "smart-home",
+    image: "/images/products/govee-tree-floor-lamp.jpg",
+    description: "Three-head smart floor lamp with rotatable lights, Matter support, music sync, and dynamic scenes.",
+  },
+  {
+    id: "sh6",
+    name: "Hifree RGB Smart Table Lamp with Voice Control",
+    price: 44.43,
+    category: "electronic",
+    collection: "smart-home",
+    image: "/images/products/hifree-table-lamp.jpg",
+    description: "Dimmable color-changing touch lamp with app control, Alexa voice control, scenes, and timers.",
+  },
+  {
+    id: "sh7",
+    name: "Qaubauyt 67 Inch Smart RGB LED Floor Lamp",
+    price: 31.99,
+    category: "electronic",
+    collection: "smart-home",
+    image: "/images/products/qaubauyt-floor-lamp.jpg",
+    description: "Modern standing lamp with app and remote control, adjustable RGB colors, brightness, and timer.",
+  },
+  {
+    id: "sh8",
+    name: "FULEN Rechargeable Motion Sensor Wall Lights 2 Pack",
+    price: 28.99,
+    category: "electronic",
+    collection: "smart-home",
+    image: "/images/products/fulen-wall-light.jpg",
+    description: "Wireless rechargeable wall sconces with motion sensors, remote control, three colors, and adjustable brightness.",
+  },
+
+  // Additional electronics
   {
     id: "e1",
     name: "Smart WiFi Plugs Mini Outlet 4-Pack",

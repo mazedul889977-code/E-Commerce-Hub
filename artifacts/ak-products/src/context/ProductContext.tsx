@@ -10,7 +10,7 @@ import {
 
 const STORAGE_KEY = "ak-products-catalog";
 const STORAGE_VERSION_KEY = "ak-products-catalog-version";
-const CATALOG_VERSION = "3";
+const CATALOG_VERSION = "4";
 
 type ProductDraft = Omit<Product, "id"> & { id?: string };
 
@@ -66,7 +66,9 @@ function loadProducts(): Product[] {
       })
       .map(normalizeProduct);
 
-    if (window.localStorage.getItem(STORAGE_VERSION_KEY) !== CATALOG_VERSION) {
+    const savedVersion = window.localStorage.getItem(STORAGE_VERSION_KEY);
+
+    if (savedVersion !== CATALOG_VERSION) {
       const defaultsById = new Map(
         defaultProducts.map((product) => [product.id, normalizeProduct(product)]),
       );
@@ -80,8 +82,14 @@ function loadProducts(): Product[] {
         return product;
       });
 
+      const collectionsToAdd = new Set<Product["collection"]>(
+        savedVersion === "3"
+          ? ["smart-home"]
+          : ["smart-kitchen", "smart-home"],
+      );
+
       defaultProducts
-        .filter((product) => product.collection === "smart-kitchen")
+        .filter((product) => collectionsToAdd.has(product.collection))
         .forEach((newProduct) => {
           if (!migratedProducts.some((product) => product.id === newProduct.id)) {
             migratedProducts.push(normalizeProduct(newProduct));
