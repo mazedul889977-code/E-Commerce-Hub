@@ -12,7 +12,7 @@ export default function Home() {
   const { products } = useProducts();
   const { homeContent } = useHomeContent();
   const bestSellers = products.filter(p => p.badge === "Best Seller");
-  const smartKitchen = products.filter(p => p.category === "kitchen").slice(0, 8);
+  const smartKitchen = products.filter(p => p.collection === "smart-kitchen").slice(0, 8);
   const smartHome = products.filter(p => p.category === "electronic").slice(0, 6);
 
   return (

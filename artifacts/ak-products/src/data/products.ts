@@ -8,6 +8,7 @@ export interface Product {
   badge?: string;
   stock?: number;
   visible?: boolean;
+  collection?: "smart-kitchen";
 }
 
 export const products: Product[] = [
@@ -83,6 +84,80 @@ export const products: Product[] = [
     image: "/images/products/reemix-chopper.jpg",
     description: "Compact 100W electric food chopper for vegetables, fruit, nuts, and meat.",
     badge: "Best Seller"
+  },
+
+  // Smart Kitchen collection
+  {
+    id: "sk1",
+    name: "Mueller Pro-Series 12 Blade Mandoline Slicer with Container",
+    price: 39.99,
+    category: "kitchen",
+    collection: "smart-kitchen",
+    image: "/images/products/mandoline-slicer.jpg",
+    description: "All-in-one mandoline slicer, chopper, spiralizer, dicer, grater, and cutter with a food container.",
+  },
+  {
+    id: "sk2",
+    name: "LekDrok 10 Inch Microwave Food Cover and Collapsible Silicone Mat",
+    price: 13.99,
+    category: "kitchen",
+    collection: "smart-kitchen",
+    image: "/images/products/microwave-cover.jpg",
+    description: "Multi-purpose microwave splatter cover, plate holder, and collapsible silicone kitchen mat.",
+  },
+  {
+    id: "sk3",
+    name: "Mecity 2 Slice Touch Screen Smart Toaster",
+    price: 44.57,
+    category: "kitchen",
+    collection: "smart-kitchen",
+    image: "/images/products/mecity-toaster.jpg",
+    description: "Stainless steel smart toaster with wide slots, timer, defrost, reheat, and bagel settings.",
+  },
+  {
+    id: "sk4",
+    name: "CHEF iQ Smart Pressure Cooker with WiFi and Built-in Scale",
+    price: 159.95,
+    category: "kitchen",
+    collection: "smart-kitchen",
+    image: "/images/products/chef-iq-pressure-cooker.jpg",
+    description: "6-quart 10-in-1 smart multicooker with guided recipes, app control, and automatic pressure release.",
+  },
+  {
+    id: "sk5",
+    name: "2 in 1 Kitchen Scissors for Food and Vegetable Cutting",
+    price: 12.95,
+    category: "kitchen",
+    collection: "smart-kitchen",
+    image: "/images/products/kitchen-scissors.jpg",
+    description: "Stainless steel food cutting scissors with a built-in cutting board and safety lock.",
+  },
+  {
+    id: "sk6",
+    name: "Chef Preserve Compact Vacuum Sealer with Containers and Bags",
+    price: 159.00,
+    category: "kitchen",
+    collection: "smart-kitchen",
+    image: "/images/products/vacuum-sealer.jpg",
+    description: "Compact handheld food vacuum sealer bundled with glass containers and reusable vacuum bags.",
+  },
+  {
+    id: "sk7",
+    name: "bella 2 Slice Slim Toaster with 6 Setting Shade Control",
+    price: 24.99,
+    category: "kitchen",
+    collection: "smart-kitchen",
+    image: "/images/products/bella-toaster.jpg",
+    description: "Space-saving long-slot toaster with six shade settings, reheat, cancel, and auto shutoff.",
+  },
+  {
+    id: "sk8",
+    name: "11lb Stainless Steel Digital Food Scale with LCD Display",
+    price: 6.99,
+    category: "kitchen",
+    collection: "smart-kitchen",
+    image: "/images/products/food-scale.jpg",
+    description: "Compact kitchen scale with tare function, six measurement units, and included batteries.",
   },
   
   // Smart Kitchen

@@ -10,7 +10,7 @@ import {
 
 const STORAGE_KEY = "ak-products-catalog";
 const STORAGE_VERSION_KEY = "ak-products-catalog-version";
-const CATALOG_VERSION = "2";
+const CATALOG_VERSION = "3";
 
 type ProductDraft = Omit<Product, "id"> & { id?: string };
 
@@ -80,10 +80,13 @@ function loadProducts(): Product[] {
         return product;
       });
 
-      const newProduct = defaultsById.get("p8");
-      if (newProduct && !migratedProducts.some((product) => product.id === "p8")) {
-        migratedProducts.push(newProduct);
-      }
+      defaultProducts
+        .filter((product) => product.collection === "smart-kitchen")
+        .forEach((newProduct) => {
+          if (!migratedProducts.some((product) => product.id === newProduct.id)) {
+            migratedProducts.push(normalizeProduct(newProduct));
+          }
+        });
 
       saveProducts(migratedProducts);
       return migratedProducts;
