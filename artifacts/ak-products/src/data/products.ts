@@ -17,7 +17,7 @@ export const products: Product[] = [
     name: "Pet Hair Remover Roller - Dog & Cat Fur Remover",
     price: 3.46,
     category: "household",
-    image: "https://placehold.co/400x400/f5f5f5/888888?text=Pet+Hair+Remover",
+    image: "/images/products/pet-hair-remover.jpg",
     description: "Easily clean pet hair from your furniture with this self-cleaning roller base.",
     badge: "Best Seller"
   },
@@ -26,7 +26,7 @@ export const products: Product[] = [
     name: "9 in 1 Electric Spin Scrubber Cordless Cleaning Brush",
     price: 24.06,
     category: "household",
-    image: "https://placehold.co/400x400/f5f5f5/888888?text=Spin+Scrubber",
+    image: "/images/products/spin-scrubber.jpg",
     description: "Powerful cordless spin scrubber with 9 interchangeable heads for versatile cleaning.",
     badge: "Best Seller"
   },
@@ -35,7 +35,7 @@ export const products: Product[] = [
     name: "Lint Remover for Clothing LED Digital Electric",
     price: 1.98,
     category: "household",
-    image: "https://placehold.co/400x400/f5f5f5/888888?text=Lint+Remover",
+    image: "/images/products/lint-remover.jpg",
     description: "Rechargeable electric lint remover quickly removes fluff and pellets from clothing.",
     badge: "Best Seller"
   },
@@ -44,7 +44,7 @@ export const products: Product[] = [
     name: "Narrow Shape Press Ring Trash Can with Lid",
     price: 17.90,
     category: "household",
-    image: "https://placehold.co/400x400/f5f5f5/888888?text=Trash+Can",
+    image: "/images/products/trash-can.jpg",
     description: "Space-saving narrow trash can designed to fit into tight bathroom or kitchen spaces.",
     badge: "Best Seller"
   },
@@ -53,7 +53,7 @@ export const products: Product[] = [
     name: "2025 New 2-Tier Stainless Steel Kitchen Dish Drainer",
     price: 27.44,
     category: "kitchen",
-    image: "https://placehold.co/400x400/f5f5f5/888888?text=Dish+Drainer",
+    image: "/images/products/dish-drainer.jpg",
     description: "Modern 2-tier stainless steel dish drying rack for spacious and organized countertops.",
     badge: "Best Seller"
   },
@@ -62,7 +62,7 @@ export const products: Product[] = [
     name: "16oz Oil Dispenser Bottle for Kitchen",
     price: 10.14,
     category: "kitchen",
-    image: "https://placehold.co/400x400/f5f5f5/888888?text=Oil+Dispenser",
+    image: "/images/products/oil-dispenser.jpg",
     description: "2 in 1 olive oil dispenser and oil sprayer for controlled and healthy cooking.",
     badge: "Best Seller"
   },
@@ -71,8 +71,17 @@ export const products: Product[] = [
     name: "Electric Garlic Chopper Mini Portable Veggie Chopper",
     price: 1.98,
     category: "kitchen",
-    image: "https://placehold.co/400x400/f5f5f5/888888?text=Garlic+Chopper",
+    image: "/images/products/black-decker-chopper.jpg",
     description: "Mini electric food chopper for garlic, ginger, peppers, and small veggies.",
+    badge: "Best Seller"
+  },
+  {
+    id: "p8",
+    name: "Reemix 1.5-Cup One-Touch Electric Food Chopper",
+    price: 19.99,
+    category: "kitchen",
+    image: "/images/products/reemix-chopper.jpg",
+    description: "Compact 100W electric food chopper for vegetables, fruit, nuts, and meat.",
     badge: "Best Seller"
   },
   

@@ -9,6 +9,8 @@ import {
 } from "react";
 
 const STORAGE_KEY = "ak-products-catalog";
+const STORAGE_VERSION_KEY = "ak-products-catalog-version";
+const CATALOG_VERSION = "2";
 
 type ProductDraft = Omit<Product, "id"> & { id?: string };
 
@@ -50,7 +52,7 @@ function loadProducts(): Product[] {
       return defaultProducts.map(normalizeProduct);
     }
 
-    return parsed
+    const loadedProducts = parsed
       .filter((product): product is Product => {
         return (
           product &&
@@ -63,6 +65,31 @@ function loadProducts(): Product[] {
         );
       })
       .map(normalizeProduct);
+
+    if (window.localStorage.getItem(STORAGE_VERSION_KEY) !== CATALOG_VERSION) {
+      const defaultsById = new Map(
+        defaultProducts.map((product) => [product.id, normalizeProduct(product)]),
+      );
+      const migratedProducts = loadedProducts.map((product) => {
+        const currentDefault = defaultsById.get(product.id);
+
+        if (currentDefault && product.image.includes("placehold.co")) {
+          return { ...product, image: currentDefault.image };
+        }
+
+        return product;
+      });
+
+      const newProduct = defaultsById.get("p8");
+      if (newProduct && !migratedProducts.some((product) => product.id === "p8")) {
+        migratedProducts.push(newProduct);
+      }
+
+      saveProducts(migratedProducts);
+      return migratedProducts;
+    }
+
+    return loadedProducts;
   } catch {
     return defaultProducts.map(normalizeProduct);
   }
@@ -71,6 +98,7 @@ function loadProducts(): Product[] {
 function saveProducts(products: Product[]) {
   if (typeof window !== "undefined") {
     window.localStorage.setItem(STORAGE_KEY, JSON.stringify(products));
+    window.localStorage.setItem(STORAGE_VERSION_KEY, CATALOG_VERSION);
   }
 }
 
