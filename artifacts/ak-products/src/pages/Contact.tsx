@@ -45,8 +45,13 @@ export default function Contact() {
                   </div>
                   <div>
                     <h4 className="font-semibold text-gray-900">Phone</h4>
-                    <p className="text-gray-600 mt-1">1-800-AK-PRODUCTS</p>
-                    <p className="text-sm text-gray-500 mt-1">Mon-Fri 9am - 5pm EST</p>
+                    <a
+                      href="tel:+8801728221317"
+                      className="text-gray-600 mt-1 inline-block hover:text-primary transition-colors"
+                    >
+                      01728221317
+                    </a>
+                    <p className="text-sm text-gray-500 mt-1">Call us for assistance.</p>
                   </div>
                 </div>
                 
@@ -56,7 +61,11 @@ export default function Contact() {
                   </div>
                   <div>
                     <h4 className="font-semibold text-gray-900">Office</h4>
-                    <p className="text-gray-600 mt-1">123 Smart Home Blvd<br/>Suite 100<br/>New York, NY 10001</p>
+                    <p className="text-gray-600 mt-1">
+                      Sarai New Gulsunpara, W-02<br />
+                      Haragach, Haragach<br />
+                      Rangpur-5441
+                    </p>
                   </div>
                 </div>
               </div>
