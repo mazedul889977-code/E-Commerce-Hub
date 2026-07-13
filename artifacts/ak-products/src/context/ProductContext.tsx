@@ -10,7 +10,7 @@ import {
 
 const STORAGE_KEY = "ak-products-catalog";
 const STORAGE_VERSION_KEY = "ak-products-catalog-version";
-const CATALOG_VERSION = "5";
+const CATALOG_VERSION = "6";
 
 type ProductDraft = Omit<Product, "id"> & { id?: string };
 
@@ -73,12 +73,20 @@ function loadProducts(): Product[] {
     );
     const migratedProducts = loadedProducts.map((product) => {
       const currentDefault = defaultsById.get(product.id);
+      let migratedProduct = product;
 
       if (currentDefault && product.image.includes("placehold.co")) {
-        return { ...product, image: currentDefault.image };
+        migratedProduct = { ...migratedProduct, image: currentDefault.image };
       }
 
-      return product;
+      if (currentDefault?.collection && product.collection !== currentDefault.collection) {
+        migratedProduct = {
+          ...migratedProduct,
+          collection: currentDefault.collection,
+        };
+      }
+
+      return migratedProduct;
     });
 
     // Reconcile collection products even when an older catalog already has the
@@ -93,6 +101,18 @@ function loadProducts(): Product[] {
     );
 
     if (savedVersion !== CATALOG_VERSION || missingCollectionProducts.length > 0) {
+      if (savedVersion !== CATALOG_VERSION) {
+        migratedProducts.forEach((product, index) => {
+          if (
+            (product.collection === "smart-kitchen" ||
+              product.collection === "smart-home") &&
+            product.visible === false
+          ) {
+            migratedProducts[index] = { ...product, visible: true };
+          }
+        });
+      }
+
       missingCollectionProducts.forEach((product) => {
         migratedProducts.push(normalizeProduct(product));
       });
