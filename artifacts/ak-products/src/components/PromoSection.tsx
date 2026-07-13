@@ -26,8 +26,8 @@ export function PromoSection() {
           </div>
           <div className="flex-1 relative min-h-[300px] md:min-h-full">
             <img 
-              src="https://placehold.co/800x800/eeeeee/aaaaaa?text=Promo+Image" 
-              alt="Promo Lifestyle" 
+              src="/images/slides/smart-home.png"
+              alt="Smart home devices in a modern living room"
               className="absolute inset-0 w-full h-full object-cover"
             />
           </div>
