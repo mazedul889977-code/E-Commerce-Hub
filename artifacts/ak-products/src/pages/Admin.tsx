@@ -1,5 +1,4 @@
-import { Header } from "@/components/Header";
-import { Footer } from "@/components/Footer";
+import { Link } from "wouter";
 import {
   defaultHomeContent,
   useHomeContent,
@@ -20,6 +19,7 @@ import {
   RotateCcw,
   Save,
   Search,
+  ShieldCheck,
   Trash2,
   Upload,
 } from "lucide-react";
@@ -66,7 +66,33 @@ function cleanForm(form: ProductForm): ProductForm {
   };
 }
 
+function AdminTopBar() {
+  return (
+    <header className="border-b border-slate-800 bg-slate-950 text-white">
+      <div className="container mx-auto flex h-16 items-center justify-between px-4">
+        <div className="flex items-center gap-3">
+          <div className="grid h-9 w-9 place-items-center rounded-lg bg-primary text-white">
+            <ShieldCheck className="h-5 w-5" />
+          </div>
+          <div>
+            <p className="text-sm font-extrabold tracking-wide">Yallo Mart Admin</p>
+            <p className="text-xs text-slate-400">Store management</p>
+          </div>
+        </div>
+        <Link
+          href="/"
+          className="text-sm font-semibold text-slate-300 transition-colors hover:text-white"
+        >
+          Back to store
+        </Link>
+      </div>
+    </header>
+  );
+}
+
 export default function Admin() {
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [password, setPassword] = useState("");
   const {
     allProducts,
     addProduct,
@@ -83,6 +109,42 @@ export default function Admin() {
   const [search, setSearch] = useState("");
   const [importValue, setImportValue] = useState("");
 
+  if (!isAuthenticated) {
+    return (
+      <div className="min-h-screen bg-slate-950 flex flex-col">
+        <AdminTopBar />
+        <div className="flex-grow flex items-center justify-center w-full px-4">
+          <div className="bg-white p-8 rounded-lg shadow-sm border border-slate-200 w-full max-w-sm">
+            <h2 className="text-2xl font-extrabold text-slate-950 text-center mb-6">Admin Login</h2>
+            <div className="space-y-4">
+              <input
+                type="password"
+                placeholder="Enter admin password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                className="h-11 w-full rounded-md border border-slate-200 px-3 text-sm outline-none focus:border-primary"
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter') {
+                    if (password === 'admin123') setIsAuthenticated(true);
+                    else toast({ title: "Access Denied", description: "Incorrect password", variant: "destructive" });
+                  }
+                }}
+              />
+              <button
+                onClick={() => {
+                  if (password === 'admin123') setIsAuthenticated(true);
+                  else toast({ title: "Access Denied", description: "Incorrect password", variant: "destructive" });
+                }}
+                className="h-11 w-full rounded-md bg-primary font-bold text-white hover:bg-primary/90"
+              >
+                Access Admin
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
   const filteredProducts = useMemo(() => {
     const query = search.trim().toLowerCase();
     if (!query) return allProducts;
@@ -306,7 +368,7 @@ export default function Admin() {
 
   return (
     <div className="min-h-screen flex flex-col bg-slate-50">
-      <Header />
+      <AdminTopBar />
 
       <main className="flex-grow">
         <div className="border-b border-slate-200 bg-white">
@@ -1283,7 +1345,6 @@ export default function Admin() {
         </div>
       </main>
 
-      <Footer />
     </div>
   );
 }
