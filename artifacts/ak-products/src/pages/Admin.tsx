@@ -13,6 +13,9 @@ import {
   Eye,
   EyeOff,
   ImagePlus,
+  LockKeyhole,
+  LogIn,
+  LogOut,
   Package,
   Pencil,
   Plus,
@@ -22,6 +25,7 @@ import {
   ShieldCheck,
   Trash2,
   Upload,
+  UserRound,
 } from "lucide-react";
 import { useMemo, useState } from "react";
 
@@ -38,6 +42,10 @@ const emptyProduct: ProductForm = {
   stock: 0,
   visible: true,
 };
+
+const ADMIN_USERNAME = "admin";
+const ADMIN_PASSWORD = "YalloMart@2026";
+const ADMIN_SESSION_KEY = "yallo-mart-admin-authenticated";
 
 function toForm(product: Product): ProductForm {
   return {
@@ -66,7 +74,7 @@ function cleanForm(form: ProductForm): ProductForm {
   };
 }
 
-function AdminTopBar() {
+function AdminTopBar({ onLogout }: { onLogout?: () => void }) {
   return (
     <header className="border-b border-slate-800 bg-slate-950 text-white">
       <div className="container mx-auto flex h-16 items-center justify-between px-4">
@@ -79,19 +87,33 @@ function AdminTopBar() {
             <p className="text-xs text-slate-400">Store management</p>
           </div>
         </div>
-        <Link
-          href="/"
-          className="text-sm font-semibold text-slate-300 transition-colors hover:text-white"
-        >
-          Back to store
-        </Link>
+        <div className="flex items-center gap-3">
+          {onLogout && (
+            <button
+              onClick={onLogout}
+              className="inline-flex h-9 items-center gap-2 rounded-md border border-slate-700 px-3 text-sm font-semibold text-slate-300 transition-colors hover:border-slate-500 hover:text-white"
+            >
+              <LogOut className="h-4 w-4" />
+              Sign out
+            </button>
+          )}
+          <Link
+            href="/"
+            className="text-sm font-semibold text-slate-300 transition-colors hover:text-white"
+          >
+            Back to store
+          </Link>
+        </div>
       </div>
     </header>
   );
 }
 
 export default function Admin() {
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [isAuthenticated, setIsAuthenticated] = useState(() => {
+    return sessionStorage.getItem(ADMIN_SESSION_KEY) === "true";
+  });
+  const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const {
     allProducts,
@@ -109,42 +131,6 @@ export default function Admin() {
   const [search, setSearch] = useState("");
   const [importValue, setImportValue] = useState("");
 
-  if (!isAuthenticated) {
-    return (
-      <div className="min-h-screen bg-slate-950 flex flex-col">
-        <AdminTopBar />
-        <div className="flex-grow flex items-center justify-center w-full px-4">
-          <div className="bg-white p-8 rounded-lg shadow-sm border border-slate-200 w-full max-w-sm">
-            <h2 className="text-2xl font-extrabold text-slate-950 text-center mb-6">Admin Login</h2>
-            <div className="space-y-4">
-              <input
-                type="password"
-                placeholder="Enter admin password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                className="h-11 w-full rounded-md border border-slate-200 px-3 text-sm outline-none focus:border-primary"
-                onKeyDown={(e) => {
-                  if (e.key === 'Enter') {
-                    if (password === 'admin123') setIsAuthenticated(true);
-                    else toast({ title: "Access Denied", description: "Incorrect password", variant: "destructive" });
-                  }
-                }}
-              />
-              <button
-                onClick={() => {
-                  if (password === 'admin123') setIsAuthenticated(true);
-                  else toast({ title: "Access Denied", description: "Incorrect password", variant: "destructive" });
-                }}
-                className="h-11 w-full rounded-md bg-primary font-bold text-white hover:bg-primary/90"
-              >
-                Access Admin
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-    );
-  }
   const filteredProducts = useMemo(() => {
     const query = search.trim().toLowerCase();
     if (!query) return allProducts;
@@ -157,6 +143,99 @@ export default function Admin() {
       );
     });
   }, [allProducts, search]);
+
+  const handleLogin = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+
+    if (
+      username.trim().toLowerCase() === ADMIN_USERNAME &&
+      password === ADMIN_PASSWORD
+    ) {
+      sessionStorage.setItem(ADMIN_SESSION_KEY, "true");
+      setIsAuthenticated(true);
+      setPassword("");
+      toast({
+        title: "Welcome back",
+        description: "Admin access unlocked.",
+      });
+      return;
+    }
+
+    toast({
+      title: "Access denied",
+      description: "Username or password is incorrect.",
+      variant: "destructive",
+    });
+  };
+
+  const handleLogout = () => {
+    sessionStorage.removeItem(ADMIN_SESSION_KEY);
+    setIsAuthenticated(false);
+    setUsername("");
+    setPassword("");
+  };
+
+  if (!isAuthenticated) {
+    return (
+      <div className="min-h-screen bg-slate-950 flex flex-col">
+        <AdminTopBar />
+        <div className="flex-grow flex items-center justify-center w-full px-4">
+          <form
+            onSubmit={handleLogin}
+            className="w-full max-w-sm rounded-lg border border-slate-800 bg-white p-8 shadow-2xl shadow-black/20"
+          >
+            <div className="mx-auto grid h-12 w-12 place-items-center rounded-lg bg-primary/10 text-primary">
+              <ShieldCheck className="h-6 w-6" />
+            </div>
+            <h2 className="mt-5 text-center text-2xl font-extrabold text-slate-950">
+              Admin Login
+            </h2>
+            <div className="mt-6 space-y-4">
+              <label className="block">
+                <span className="text-sm font-bold text-slate-700">
+                  Username
+                </span>
+                <span className="mt-2 flex h-11 items-center gap-2 rounded-md border border-slate-200 px-3 focus-within:border-primary">
+                  <UserRound className="h-4 w-4 text-slate-400" />
+                  <input
+                    type="text"
+                    placeholder="Enter username"
+                    value={username}
+                    onChange={(e) => setUsername(e.target.value)}
+                    className="h-full min-w-0 flex-1 bg-transparent text-sm outline-none"
+                    autoComplete="username"
+                  />
+                </span>
+              </label>
+              <label className="block">
+                <span className="text-sm font-bold text-slate-700">
+                  Password
+                </span>
+                <span className="mt-2 flex h-11 items-center gap-2 rounded-md border border-slate-200 px-3 focus-within:border-primary">
+                  <LockKeyhole className="h-4 w-4 text-slate-400" />
+                  <input
+                    type="password"
+                    placeholder="Enter password"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                    className="h-full min-w-0 flex-1 bg-transparent text-sm outline-none"
+                    autoComplete="current-password"
+                  />
+                </span>
+              </label>
+              <button
+                type="submit"
+                className="h-11 w-full rounded-md bg-primary font-bold text-white hover:bg-primary/90"
+              >
+                <LogIn className="mr-2 inline h-4 w-4" />
+                Access Admin
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    );
+  }
 
   const visibleCount = allProducts.filter(
     (product) => product.visible !== false,
@@ -368,7 +447,7 @@ export default function Admin() {
 
   return (
     <div className="min-h-screen flex flex-col bg-slate-50">
-      <AdminTopBar />
+      <AdminTopBar onLogout={handleLogout} />
 
       <main className="flex-grow">
         <div className="border-b border-slate-200 bg-white">

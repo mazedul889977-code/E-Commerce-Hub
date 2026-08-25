@@ -60,7 +60,7 @@ function Router() {
       
       <Route path="/product/:id" component={ProductDetail} />
       <Route path="/cart" component={Cart} />
-      <Route path="/admin" component={Admin} />
+      <Route path="/owner-console-889977" component={Admin} />
       <Route path="/about" component={About} />
       <Route path="/contact" component={Contact} />
       <Route path="/account" component={Account} />
