@@ -82,7 +82,7 @@ export default function Shop() {
         <ProductHeaderBar
           count={filteredProducts.length}
           title="Top Selling Products"
-          subtitle="Customer favorites from every Yallo Mart category."
+          subtitle="Best products and customer favorites from every Yallo Mart category."
           variant="top"
         />
 
