@@ -1,5 +1,6 @@
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
+import { ProductHeaderBar } from "@/components/ProductHeaderBar";
 import { ProductGrid } from "@/components/ProductGrid";
 import { useProducts } from "@/context/ProductContext";
 import { Link } from "wouter";
@@ -13,6 +14,21 @@ interface CategoryPageProps {
 export default function CategoryPage({ category, title, description }: CategoryPageProps) {
   const { products } = useProducts();
   const categoryProducts = products.filter(p => p.category === category);
+  const productHeaders = {
+    kitchen: {
+      title: "Kitchen Products",
+      subtitle: "Useful kitchen essentials for smarter everyday cooking.",
+    },
+    household: {
+      title: "Household Products",
+      subtitle: "Simple tools that keep your home cleaner and easier to manage.",
+    },
+    electronic: {
+      title: "Electronic Products",
+      subtitle: "Smart electronics selected for modern home convenience.",
+    },
+  };
+  const productHeader = productHeaders[category];
 
   return (
     <div className="min-h-screen flex flex-col bg-white">
@@ -31,9 +47,12 @@ export default function CategoryPage({ category, title, description }: CategoryP
       </div>
 
       <main className="flex-grow container mx-auto px-4 py-12">
-        <div className="mb-6 text-sm text-gray-500 font-medium">
-          Showing {categoryProducts.length} results in {title}
-        </div>
+        <ProductHeaderBar
+          count={categoryProducts.length}
+          title={productHeader.title}
+          subtitle={productHeader.subtitle}
+          variant={category}
+        />
         
         {categoryProducts.length > 0 ? (
           <ProductGrid products={categoryProducts} />

@@ -1,5 +1,6 @@
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
+import { ProductHeaderBar } from "@/components/ProductHeaderBar";
 import { ProductGrid } from "@/components/ProductGrid";
 import { useProducts } from "@/context/ProductContext";
 import { useState, useMemo, useEffect } from "react";
@@ -78,9 +79,12 @@ export default function Shop() {
           </div>
         </div>
 
-        <div className="mb-6 text-sm text-gray-500 font-medium">
-          Showing {filteredProducts.length} results
-        </div>
+        <ProductHeaderBar
+          count={filteredProducts.length}
+          title="Top Selling Products"
+          subtitle="Customer favorites from every Yallo Mart category."
+          variant="top"
+        />
 
         {filteredProducts.length > 0 ? (
           <ProductGrid products={filteredProducts} />
