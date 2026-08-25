@@ -87,7 +87,7 @@ export default function Shop() {
         />
 
         {filteredProducts.length > 0 ? (
-          <ProductGrid products={filteredProducts} />
+          <ProductGrid products={filteredProducts} bare />
         ) : (
           <div className="text-center py-20 bg-gray-50 rounded-xl border border-dashed border-gray-200">
             <h3 className="text-lg font-bold text-gray-900 mb-2">No products found</h3>

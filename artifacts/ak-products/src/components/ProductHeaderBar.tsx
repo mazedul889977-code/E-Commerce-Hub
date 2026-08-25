@@ -5,7 +5,9 @@ import {
   MonitorSmartphone,
   Sparkles,
   TrendingUp,
+  ArrowRight,
 } from "lucide-react";
+import { Link } from "wouter";
 
 type ProductHeaderBarVariant = "top" | "kitchen" | "household" | "electronic";
 
@@ -14,6 +16,8 @@ interface ProductHeaderBarProps {
   title: string;
   subtitle?: string;
   variant?: ProductHeaderBarVariant;
+  viewAllLink?: string;
+  viewAllText?: string;
 }
 
 const variantStyles = {
@@ -56,6 +60,8 @@ export function ProductHeaderBar({
   title,
   subtitle,
   variant = "top",
+  viewAllLink,
+  viewAllText = "View All",
 }: ProductHeaderBarProps) {
   const style = variantStyles[variant];
   const Icon = style.icon;
@@ -85,14 +91,25 @@ export function ProductHeaderBar({
               )}
             </div>
           </div>
-          <div className="flex items-center gap-3 self-start rounded-lg border border-white/10 bg-white/10 px-4 py-3 text-white shadow-sm backdrop-blur sm:self-center">
-            <BadgeCheck className={`h-5 w-5 ${style.tint}`} />
-            <div>
-              <div className="text-2xl font-black leading-none">{count}</div>
-              <div className="mt-1 text-xs font-bold uppercase tracking-wide text-slate-300">
-                Products
+          <div className="flex flex-wrap items-center gap-3 self-start sm:self-center">
+            <div className="flex items-center gap-3 rounded-lg border border-white/10 bg-white/10 px-4 py-3 text-white shadow-sm backdrop-blur">
+              <BadgeCheck className={`h-5 w-5 ${style.tint}`} />
+              <div>
+                <div className="text-2xl font-black leading-none">{count}</div>
+                <div className="mt-1 text-xs font-bold uppercase tracking-wide text-slate-300">
+                  Products
+                </div>
               </div>
             </div>
+            {viewAllLink && (
+              <Link
+                href={viewAllLink}
+                className="inline-flex h-11 items-center gap-2 rounded-lg bg-white px-4 text-sm font-extrabold text-slate-950 transition-colors hover:bg-slate-100"
+              >
+                {viewAllText}
+                <ArrowRight className="h-4 w-4" />
+              </Link>
+            )}
           </div>
         </div>
       </div>

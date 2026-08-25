@@ -9,10 +9,23 @@ interface ProductGridProps {
   subtitle?: string;
   viewAllLink?: string;
   viewAllText?: string;
+  bare?: boolean;
 }
 
-export function ProductGrid({ products, title, subtitle, viewAllLink, viewAllText = "View All" }: ProductGridProps) {
+export function ProductGrid({ products, title, subtitle, viewAllLink, viewAllText = "View All", bare = false }: ProductGridProps) {
   if (!products.length) return null;
+
+  const grid = (
+    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6">
+      {products.map((product) => (
+        <ProductCard key={product.id} product={product} />
+      ))}
+    </div>
+  );
+
+  if (bare) {
+    return grid;
+  }
 
   return (
     <section className="py-16 bg-white">
@@ -43,11 +56,7 @@ export function ProductGrid({ products, title, subtitle, viewAllLink, viewAllTex
           </div>
         )}
 
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6">
-          {products.map((product) => (
-            <ProductCard key={product.id} product={product} />
-          ))}
-        </div>
+        {grid}
       </div>
     </section>
   );

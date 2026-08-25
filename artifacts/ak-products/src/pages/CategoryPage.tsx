@@ -55,7 +55,7 @@ export default function CategoryPage({ category, title, description }: CategoryP
         />
         
         {categoryProducts.length > 0 ? (
-          <ProductGrid products={categoryProducts} />
+          <ProductGrid products={categoryProducts} bare />
         ) : (
           <div className="text-center py-20 bg-gray-50 rounded-xl border border-dashed border-gray-200">
             <h3 className="text-lg font-bold text-gray-900">Coming Soon</h3>
