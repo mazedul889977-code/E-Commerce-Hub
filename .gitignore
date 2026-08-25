@@ -4,6 +4,7 @@
 dist
 tmp
 out-tsc
+deploy/
 *.tsbuildinfo
 .expo
 .expo-shared
