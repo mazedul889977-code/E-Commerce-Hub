@@ -25,6 +25,7 @@ export function Footer() {
           <h3 className="text-white font-bold mb-4 uppercase tracking-wider text-sm">Important Links</h3>
           <ul className="space-y-3 text-sm">
             <li><Link href="/account" className="hover:text-white transition-colors">My Account</Link></li>
+            <li><Link href="/admin" className="hover:text-white transition-colors">Admin Login</Link></li>
             <li><Link href="/privacy-policy" className="hover:text-white transition-colors">Privacy Policy</Link></li>
             <li><Link href="/terms" className="hover:text-white transition-colors">Terms & Conditions</Link></li>
             <li><Link href="/refund-policy" className="hover:text-white transition-colors">Refund and Returns Policy</Link></li>

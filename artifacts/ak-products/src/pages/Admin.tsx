@@ -199,6 +199,7 @@ export default function Admin() {
                   <UserRound className="h-4 w-4 text-slate-400" />
                   <input
                     type="text"
+                    required
                     placeholder="Enter username"
                     value={username}
                     onChange={(e) => setUsername(e.target.value)}
@@ -215,6 +216,7 @@ export default function Admin() {
                   <LockKeyhole className="h-4 w-4 text-slate-400" />
                   <input
                     type="password"
+                    required
                     placeholder="Enter password"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}

@@ -30,7 +30,7 @@ Important: cPanel File Manager Settings-e `Show Hidden Files (dotfiles)` on koru
 
 ## Admin
 
-Website menu-te Admin link show korbe na. Browser address bar-e manually ei path dile login page ashbe:
+Website footer-er `Admin Login` link-e click korle login page ashbe. Browser address bar-e manually ei path-o deya jabe:
 
 ```text
 https://your-domain.com/admin
